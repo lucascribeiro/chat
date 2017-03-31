@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+   <input type="text" id="user-input">
+   <button type="button" id="send" onclick="javascript:send()" >Enviar</button>
+   <input type="text" id="bot-input">
+</body>
+<script type="text/javascript">
+
+var send = function()
+{
+   var textmsg = document.getElementById("user-input").value,
+      params = "textmsg=" + textmsg + "&otherparam=1",
+      xmlhttp = new XMLHttpRequest();
+
+   xmlhttp.open("POST","http://localhost:7171/message", true);
+   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   xmlhttp.onreadystatechange=function(){
+      if (xmlhttp.readyState==4 && xmlhttp.status==200){
+         document.getElementById("bot-input").value = xmlhttp.responseText;
+      }
+   }
+
+   xmlhttp.send(params);
+};
+
+</script>
+</html>

@@ -38,26 +38,37 @@ const actions = {
   },
   //{context, entities}
   getName(request) {
-    var name = firstEntityValue(request.entities, 'contact');
+    var name = firstEntityValue(request.entities, 'name');
     if (name) {
-      request.context.contact = name;
+      request.context.name = name;
       delete request.context.missingName;
     } else {
       request.context.missingName = true;
-      delete request.context.contact;
+      delete request.context.name;
     }
     return request.context;
   },
-  getLocation(request) {
-    var location = firstEntityValue(request.entities, 'location');
-    if(location) {
-      request.context.location = location;
-      delete request.context.missingLocation;
+  getCity(request) {
+    var city = firstEntityValue(request.entities, 'city');
+    if(city) {
+      request.context.city = city;
+      delete request.context.missingCity;
     } else {
-      request.context.missingLocation = true;
-      delete request.context.location;
+      request.context.missingCity = true;
+      delete request.context.city;
     }
     return request.context;
+  },
+  getMail(request) {
+   var mail = firstEntityValue(request.entities, 'email');
+   if(mail) {
+     request.context.mail = mail;
+     delete request.context.missingMail;
+   } else {
+     request.context.missingMail = true;
+     delete request.context.mail;
+   }
+   return request.context;
   },
 };
 

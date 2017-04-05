@@ -128,7 +128,7 @@ $(document).ready(function () {
 
   function scrollBottom() {
     $($inner).animate({
-      scrollTop: $($content).offset().top + $($content).outerHeight(true)
+      scrollTop: $($content).height()//$($content).offset().top + $($content).outerHeight(true)
     }, {
       queue: false,
       duration: 'ease'
@@ -185,16 +185,12 @@ $(document).ready(function () {
   messenger.onSend = buildSent;
 
   setTimeout(function () {
-    messenger.recieve('Hello there!');
+    messenger.recieve('Olá, eu sou o Greg.');
   }, 1500);
 
   setTimeout(function () {
-    messenger.recieve('Do you like this? If so check out more on my page...');
+    messenger.recieve('Poderia me dizer um pouco sobre você?');
   }, 3000);
-
-  setTimeout(function () {
-    messenger.recieve('Or maybe just give it a like!');
-  }, 4500);
 
   $input.focus();
 
